@@ -1,0 +1,136 @@
+/**
+ * Custom Popup Module for Joomla 4/5
+ * @author @leocostadeveloper
+ * @copyright Copyright (C) 2025 @leocostadeveloper. All rights reserved.
+ */
+
+/* Overlay */
+.custom-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+/* Popup container */
+.custom-popup {
+    position: relative;
+    background-color: #ffffff;
+    padding: 20px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+/* Close button */
+.custom-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+    z-index: 1;
+}
+
+.custom-popup-close:hover {
+    color: #333;
+}
+
+/* Header */
+.custom-popup-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.custom-popup-header h3 {
+    margin: 0;
+    padding-right: 30px;
+    font-size: 1.4em;
+}
+
+/* Content */
+.custom-popup-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Image container */
+.custom-popup-image {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.custom-popup-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Text content */
+.custom-popup-text {
+    width: 100%;
+}
+
+/* When image and text are side by side */
+@media (min-width: 768px) {
+    .custom-popup-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .custom-popup-image {
+        margin-right: 20px;
+        margin-bottom: 0;
+        flex: 0 0 40%;
+    }
+    
+    .custom-popup-text {
+        flex: 1;
+    }
+}
+
+/* Prevent scrolling when popup is open */
+body.custom-popup-open {
+    overflow: hidden;
+}
+
+/* Animation when popup appears */
+.custom-popup-overlay[style*="flex"] .custom-popup {
+    animation: popup-zoom-in 0.3s forwards;
+}
+
+@keyframes popup-zoom-in {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Author credit */
+.custom-popup::after {
+    content: "Powered by @leocostadeveloper";
+    display: block;
+    font-size: 10px;
+    text-align: center;
+    margin-top: 15px;
+    color: #999;
+    opacity: 0.7;
+}
