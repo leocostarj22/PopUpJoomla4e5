@@ -124,7 +124,7 @@ body.custom-popup-open {
     }
 }
 
-/* Author credit */
+/* Author credit 
 .custom-popup::after {
     content: "Powered by @leocostadeveloper";
     display: block;
@@ -134,3 +134,4 @@ body.custom-popup-open {
     color: #999;
     opacity: 0.7;
 }
+*/
